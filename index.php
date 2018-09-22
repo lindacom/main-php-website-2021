@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,11 +27,12 @@
            <div class="row intro">
                 <div class=" small-12 medium-6 large-6 columns">
               <h1>Web development training website</h1>
-              <p >This website has been built using HTML, CSS, Javascript, PHP and SQL skills and is built on Foundation framework 6. 
+              <p >This website has been built using HTML, CSS, Javascript, PHP and SQL skills and uses Bootstrap and Foundation framework 6. 
                   It documents continued learning about coaching and leadership. 
                 </p>
     
               <a href="http://lindacoach.epizy.com/drupal8/index.php" class="button primary">Coaching</a>
+                  <a href="http://lindacom.infinityfreeapp.com/projectmanagement.php" class="hollow button secondary">Project management</a>
                
 
           </div>
@@ -46,12 +48,90 @@
                             <h2>Projects</h2>
                          </div>
                        
-                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-                                           <a href="http://lindacom.infinityfreeapp.com/blog/articles.php" class="button warning">Article listings</a><br />
-                                           <a href="http://lindacom.infinityfreeapp.com/forms.php" class="button warning">Forms</a><br />
-                                           <a href="http://lindacom.infinityfreeapp.com/books/library.php" class="button warning">Shopping cart</a><br />
-                          </div>
-                                       </div>
+                     
+                                      
+     <!--- CARDS -->
+<div class="col-md-12">
+  
+<div class="col-md-4">
+<div class="card">
+<img class="card-img-top" src="images/monkey.jpg">
+<div class="card-body">
+<h3 class="card-title">Article listings</h3>
+<p class="card-text">A listing of blog articles which links to the full article.  The precis information is retrieved from a database and items can be searched and filtered by month.</p>
+<p align="right"><a href="http://lindacom.infinityfreeapp.com/blog/articles.php" class="button warning" align="right">View article listing</a></p>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card">
+<img class="card-img-top" src="images/monkey.jpg">
+<div class="card-body">
+<h3 class="card-title">Forms</h3>
+<p class="card-text">Various forms used to increase my JavaScript knowledge including form validation using JavaScript Regular Expressions (RegEx)</p>
+<p align="right"><a href="http://lindacom.infinityfreeapp.com/forms.php" class="button warning">View forms</a></p>
+</div>
+</div>
+</div>
+  
+  <div class="col-md-4">
+<div class="card">
+<img class="card-img-top" src="images/monkey.jpg">
+<div class="card-body">
+<h3 class="card-title">Games</h3>
+<p class="card-text">A selection of games</p>
+<p align="right"><a href="http://lindacom.infinityfreeapp.com/games/quiz/game.php" class="button warning">View games</a></p>
+</div>
+</div>
+</div>
+
+  
+  
+
+
+</div>
+               
+  <!--- CARDS second row -->
+                                    <div class="col-md-12">
+  
+                                      
+                                      <div class="col-md-4">
+<div class="card">
+<img class="card-img-top" src="images/monkey.jpg">
+<div class="card-body">
+<h3 class="card-title">Login page</h3>
+<p class="card-text">Login form used to practice matching username and password details in a database and adding new username and password details to a database.</p>
+<p align="right"> <a href=" http://lindacom.infinityfreeapp.com/login/loginpage.php" class="button warning">View login page</a></p>
+</div>
+</div>
+</div>
+                                      
+                                      
+<div class="col-md-4">
+<div class="card">
+<img class="card-img-top" src="images/monkey.jpg">
+<div class="card-body">
+<h3 class="card-title">Shopping cart</h3>
+<p class="card-text">A listing of books which links to product pages.  The precis information is retrieved from a database and items can be searched and filtered by price and category. The shopping cart also has an add to basket functionality and a session is used to store the order on the following basket page.</p>
+ <p align="right"><a href="http://lindacom.infinityfreeapp.com/books/library.php" class="button warning">View shopping cart</a></p>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card">
+<img class="card-img-top" src="images/monkey.jpg">
+<div class="card-body">
+<h3 class="card-title">Memory game</h3>
+<p class="card-text">Just for fun, another little game.</p>
+<p align="right"><a href="http://lindacom.infinityfreeapp.com/games/memory/memorygame.html" class="button warning">View memory game</a></p>
+</div>
+</div>
+</div>
+
+</div>
+ </div>
   </section>
           
 <!--- INTERRUPT -->
