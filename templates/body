@@ -1,0 +1,62 @@
+  <body>
+            <!-- HERO SECTION -->
+
+  <section class="hero">
+
+           <div class="row intro">
+              <div class=" small-12 medium-6 large-6 columns">
+</div>
+          </div>
+   </section>
+
+  <!-- MAIN SECTION -->
+
+
+<div class="wrap row">
+<div class="grid-container">
+          <div class="grid-x grid-margin-x">
+
+<!-- colored  SUB SECTION -->
+   <section class="coloured">
+                                       
+                                  <div class="row intro">         
+
+                       <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                            <h2>Projects</h2>
+                         </div>
+<!--- THREE COLUMN SECTION-->
+               <div class="row"style="padding-bottom: 40px;">
+                           
+                            <div class="col-xs-12 col-sm-3 col-md-3">
+                              <i class="fas fa-code"></i> 
+                              <h3>HTML5</h3>  
+                               <p>Using HTML to build the website</p> 
+                            </div> 
+
+                           <div class="col-xs-12 col-sm-3 col-md-3">
+                                <i class="fas fa-bold"></i>
+                                 <h3>BOOTSTRAP</h3>
+                                 <p>Using CSS, Bootstrap and Foundation framework to design the website</p>
+                            </div>
+
+                            <div class="col-sm-12 col-sm-3 col-md-3">
+<i class="fab fa-css3"></i>
+<h3>CODING </h3>
+<p>Using SQL databases, JavaScript and PHP to make the website more interactive</p>
+</div>
+
+<div class="col-sm-12 col-sm-3 col-md-3">                      
+<i class="fab fa-drupal"></i>                      
+<h3>CMS </h3>
+<p>Using Drupal content management system to build the coaching microsite</p>
+</div>
+
+            </div>
+      </div> 
+      </div>
+      </div> 
+                        </section> 
+  <!-- END OF MAIN SECTION -->
+   </div>
+   </div>
+   </div>
