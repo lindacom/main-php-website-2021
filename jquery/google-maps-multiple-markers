@@ -1,0 +1,93 @@
+ <!--The div element for the map -->
+    <div id="map" style="width:900px"></div>
+    
+    <!--Google maps API with multiple markers
+   
+    -->
+     <script>
+
+     // initialise the map
+
+function initMap() {
+
+// set the Locations and descriptions
+
+  var locations = [
+
+    ['Lima',
+    'Peru, South America',
+    -12.04318, -77.02824],
+
+    ['Rome',
+    'Italy',
+    41.89193, 12.51133],
+
+ ['Faro',
+    'Portugal',
+    37.13856, -8.53775],
+['Amsterdam',
+    'Netherlands',
+    52.37403, 4.88969],
+
+['Kumasi',
+    'Ghana',
+    6.68848, -1.62443],
+
+['Orlando',
+    'Florida, United States',
+    28.53834, -81.37924],
+
+
+  ];
+
+// Generate Map and place in the div with the id map centred at the position and zoom stated
+  
+  var map = new google.maps.Map(document.getElementById('map'), {
+      center: new google.maps.LatLng(37.138, -8.537),
+      zoom: 2,
+  });
+
+// Info Window - loop through each marker location and place the marker on the map in the lat long position for each location
+  
+  var infowindow = new google.maps.InfoWindow();
+
+  var marker, i;
+
+  for (i = 0; i < locations.length; i++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][2], locations[i][3]),
+      map: map
+    });
+
+// listen for click even on the marker and run the function for that marker (i) - put the content (first and second details of the location content) in an info window
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infowindow.setContent(
+          '<h3>'+locations[i][0]+'</h3>'+
+          '<p>'+locations[i][1]+'</p>'
+        );
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
+  };
+  
+  $(".markerReference").on('click', function() {
+    var lng = $(this).data('lng');
+    var lat = $(this).data('lat');
+  var LatLng = new google.maps.LatLng(lat, lng);
+   map.panTo(LatLng); 
+  });
+  
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key 
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOURAPIKEY&callback=initMap">
+
+    
+    </script> 
