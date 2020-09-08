@@ -7,7 +7,7 @@
 <title>Web training website</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="http://lindacom.infinityfreeapp.com/css/app.scss">
+   <link rel="stylesheet" href="/css/app.scss">
    <link rel="stylesheet" type="text/css" href="css/modules.scss">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -31,8 +31,8 @@
                   It documents continued learning about coaching and leadership. 
                 </p>
     
-              <a href="http://lindacoach.epizy.com/drupal8/index.php" class="button primary">Coaching</a>
-                  <a href="http://lindacom.infinityfreeapp.com/projectmanagement.php" class="hollow button secondary">Project management</a>
+              <a href="/drupal8/index.php" class="button primary">Coaching</a>
+                  <a href="/projectmanagement.php" class="hollow button secondary">Project management</a>
                
 
           </div>
@@ -59,7 +59,7 @@
 <div class="card-body">
 <h3 class="card-title">Article listings</h3>
 <p class="card-text">A listing of blog articles which links to the full article.  The precis information is retrieved from a database and items can be searched and filtered by month.</p>
-<p align="right"><a href="http://lindacom.infinityfreeapp.com/blog/articles.php" class="button warning" align="right">View article listing</a></p>
+<p align="right"><a href="/blog/articles.php" class="button warning" align="right">View article listing</a></p>
 </div>
 </div>
 </div>
@@ -70,7 +70,7 @@
 <div class="card-body">
 <h3 class="card-title">Forms</h3>
 <p class="card-text">Various forms used to increase my JavaScript knowledge including form validation using JavaScript Regular Expressions (RegEx)</p>
-<p align="right"><a href="http://lindacom.infinityfreeapp.com/forms.php" class="button warning">View forms</a></p>
+<p align="right"><a href="/forms.php" class="button warning">View forms</a></p>
 </div>
 </div>
 </div>
@@ -81,7 +81,7 @@
 <div class="card-body">
 <h3 class="card-title">Games</h3>
 <p class="card-text">A selection of games</p>
-<p align="right"><a href="http://lindacom.infinityfreeapp.com/games/quiz/game.php" class="button warning">View games</a></p>
+<p align="right"><a href="/games/quiz/game.php" class="button warning">View games</a></p>
 </div>
 </div>
 </div>
@@ -102,7 +102,7 @@
 <div class="card-body">
 <h3 class="card-title">Login page</h3>
 <p class="card-text">Login form used to practice matching username and password details in a database and adding new username and password details to a database.</p>
-<p align="right"> <a href=" http://lindacom.infinityfreeapp.com/login/loginpage.php" class="button warning">View login page</a></p>
+<p align="right"> <a href="/login/loginpage.php" class="button warning">View login page</a></p>
 </div>
 </div>
 </div>
@@ -114,7 +114,7 @@
 <div class="card-body">
 <h3 class="card-title">Shopping cart</h3>
 <p class="card-text">A listing of books which links to product pages.  The precis information is retrieved from a database and items can be searched and filtered by price and category. The shopping cart also has an add to basket functionality and a session is used to store the order on the following basket page.</p>
- <p align="right"><a href="http://lindacom.infinityfreeapp.com/books/library.php" class="button warning">View shopping cart</a></p>
+ <p align="right"><a href="/books/library.php" class="button warning">View shopping cart</a></p>
 </div>
 </div>
 </div>
@@ -125,7 +125,7 @@
 <div class="card-body">
 <h3 class="card-title">Memory game</h3>
 <p class="card-text">Just for fun, another little game.</p>
-<p align="right"><a href="http://lindacom.infinityfreeapp.com/games/memory/memorygame.html" class="button warning">View memory game</a></p>
+<p align="right"><a href="/games/memory/memorygame.html" class="button warning">View memory game</a></p>
 </div>
 </div>
 </div>
