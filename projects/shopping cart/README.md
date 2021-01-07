@@ -1,4 +1,19 @@
+Database
+===========
+
+Block access to expired member
+-------------------------------
+Store an expiry date and compare it with today's date.
+tbl_customer - CustomerID(int(10)), CustomerName(varChr(30)), password(varChar(255)), expiry(date) 
+
+shoppinglogin.php
+loginuser.php
+
+
+checkout.php - http://lindacom.infinityfreeapp.com/books/checkout.php?customer=linda
+
 Add shipping cost to total
+-----------------------------
 
 ```
 <tr>
