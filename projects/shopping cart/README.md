@@ -10,7 +10,7 @@ shoppinglogin.php
 loginuser.php
 
 
-checkout.php - http://lindacom.infinityfreeapp.com/books/checkout.php?customer=linda
+checkout.php 
 
 Add shipping cost to total
 -----------------------------
