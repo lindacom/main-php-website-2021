@@ -90,7 +90,79 @@ echo 'free';
 ```
 Sessions
 ============
+
+Shopping basket:
+
+SET SESSION
+
+```
+<?php
+    session_start();
+
+ if(isset($_GET['title']) && $_GET['title'] !== ""){ //if there is a book title in the url
+   
+    // IF THERE IS ALREADY A SESSION  
+      if(isset($_SESSION["cart"]))  // if there is a cart session
+      {  
+           $item_array_id = array_column($_SESSION["cart"], "item_id");  
+           if(!in_array($_GET["id"], $item_array_id))  // if the id in the url is not already in the array
+           {  
+                $count = count($_SESSION["cart"]);  // count number of items in the cart
+                $item_array = array(  // get id, title, price and quantity from the url and store in array
+                     'item_id'               =>     $_GET["id"],
+                   'item_name' =>     $_GET["title"], 
+                    'item_price'          =>    $_GET["price"], 
+                     'item_quantity'          =>     $_GET["quantity"]
+                );  
+                $_SESSION["cart"][$count] = $item_array;  // store item array in cart session
+           }  
+           else  
+           {  
+                echo '<script>alert("Item Already Added")</script>';  
+                echo '<script>window.location="librarysearch.php"</script>';  
+           }  
+      }  
+
+      // IF A SESSION DOES NOT ALREADY EXIST
+      else  
+      {  
+           $item_array = array(  // create an array using id, title, price and quantity from url
+                'item_id'               =>     $_GET["id"],
+                   'item_name' =>     $_GET["title"], 
+                    'item_price'          =>    $_GET["price"], 
+                     'item_quantity'          =>     $_GET["quantity"]
+           );  
+           $_SESSION["cart"][0] = $item_array;  // store item array in cart session
+      } 
+     
+ }
+ ```
+ 
+ UNSET SESSION
+ 
+```
+<!-- unset session when url action is delete -->
+<?php   
+
+   if(isset($_GET["action"]))  
+ {  
+     if($_GET["action"] == "delete")  // if the selectd action is delete
+      {  
+           foreach($_SESSION["cart"] as $keys => $values)  // look through the cart
+           {  
+                if($values["item_id"] == $_GET["id"])  // if an id in the cart equals the id in the rul
+                {                     
+                  unset($_SESSION["cart"][$keys]);  // remove the key from the cart session
+                     echo '<script>alert("Item Removed")</script>';  
+                     echo '<script>window.location="librarysearch.php"</script>';  
+                }  
+           }  
+      }  
+ }
+ ?>
+ ```
 To set session time limit:
+
 1.Store the current time in a session variable
 2.set a time limit in seconds
 3.compare session variable + time liit to current time
