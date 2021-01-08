@@ -90,6 +90,12 @@ echo 'free';
 ```
 Sessions
 ============
+To set session time limit:
+1.Store the current time in a session variable
+2.set a time limit in seconds
+3.compare session variable + time liit to current time
+If less, log user out and destroy session
+otherwise, update session variable to current time
 
 Checkout.php - if user is not logged in send them to the login page with details of the current page (to be redirected to after login) 
 
@@ -100,7 +106,8 @@ session_start()
 // do check to see if user logged in
 if (!isset($_SESSION["customer"])) {
     echo '<script>alert("you must be logged in ")</script>';
-    $_SESSION['customerloggedin'] = $_SERVER['REQUEST_URI']; // Note: $_SERVER['REQUEST_URI'] is your current page which will be returned back in the session when logged in
+    $_SESSION['customerloggedin'] = $_SERVER['REQUEST_URI']; 
+    // Note: $_SERVER['REQUEST_URI'] is your current page which will be returned back in the session when logged in
     header("location: shoppinglogin.php?location=" . urlencode($_SERVER['REQUEST_URI']));
     exit; // prevent further execution, should there be more code that follows
 }
