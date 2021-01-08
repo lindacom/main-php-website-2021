@@ -97,19 +97,24 @@ To set session time limit:
 If less, log user out and destroy session
 otherwise, update session variable to current time
 
-Checkout.php - if user is not logged in send them to the login page with details of the current page (to be redirected to after login) 
+Checkout.php - if user is not logged in send them to the login page with details of the current page (to be redirected to after login). Else if session has expired
+go to set expired variable to true and go to logout page. Else set session start to current time.
 
 ```
 <?php
 session_start()
-
 // do check to see if user logged in
 if (!isset($_SESSION["customer"])) {
     echo '<script>alert("you must be logged in ")</script>';
-    $_SESSION['customerloggedin'] = $_SERVER['REQUEST_URI']; 
-    // Note: $_SERVER['REQUEST_URI'] is your current page which will be returned back in the session when logged in
+    $_SESSION['customerloggedin'] = $_SERVER['REQUEST_URI']; // Note: $_SERVER['REQUEST_URI'] is your current page which will be returned back in the session when                                                                  logged in
     header("location: shoppinglogin.php?location=" . urlencode($_SERVER['REQUEST_URI']));
     exit; // prevent further execution, should there be more code that follows
+}
+ elseif ($_SESSION["expire"] < time()) { //check if session plus limit is less than current time. Not working as session returns true not a number
+    $expired = true;
+    require 'logout.php';
+} else {
+    $_SESSION["start"] = time();
 }
 ?>
 ```
