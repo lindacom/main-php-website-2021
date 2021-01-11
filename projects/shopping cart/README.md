@@ -163,9 +163,10 @@ SET SESSION
  ```
 To set session time limit:
 
-1.Store the current time in a session variable
-2.set a time limit in seconds
-3.compare session variable + time liit to current time
+1. Store the current time in a session variable
+2. set a time limit in seconds
+3. compare session variable + time liit to current time
+
 If less, log user out and destroy session
 otherwise, update session variable to current time
 
@@ -189,6 +190,35 @@ if (!isset($_SESSION["customer"])) {
     $_SESSION["start"] = time();
 }
 ?>
+```
+
+Store session data in database
+------------------------------
+
+1. Create database tables to store user data, session data and auto login data
+2. Create session handler file using session handler class
+3. In login page connect to database, include the session handler file and use session_set_save_handler() method to store data in the database.
+
+```
+
+<?php include '../books/includes/db_connect.php';?>
+<?php include '../books/Foundationphp/Sessions/MysqlSessionHandler.php';?>
+
+<?php
+// Storing session data in the database using the session handler php file, session handler class and PDO db connection
+// Warning: session_set_save_handler(): Cannot change save handler when session is active
+// therefore this code needs to appear before session start
+
+use Foundationphp\Sessions\MysqlSessionHandler;
+
+
+$handler = new MysqlSessionHandler($db);
+session_set_save_handler($handler);
+
+?> 
+<?php
+session_start();
+?> 
 ```
 Saving session variables
 --------------------------
