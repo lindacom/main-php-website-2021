@@ -196,7 +196,7 @@ Store session data in database
 ------------------------------
 
 1. Create database tables to store user data, session data and auto login data
-2. Create session handler file using session handler class
+2. Create session handler file - create a session handler class that uses the SessionHandlerInterface
 3. In login page connect to database, include the session handler file and use session_set_save_handler() method to store data in the database.
 
 ```
