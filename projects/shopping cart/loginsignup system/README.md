@@ -31,8 +31,8 @@ loginuser.php
 ```
 $username = $_POST['txtuser']; //txtuser is the name in the form field
 $password = $_POST['txtpass']; //txtpass is the name in the form field
-    
-$checkuser = "SELECT * FROM tbl_customer WHERE CustomerName ='$username' AND password ='$password' "; // get user from db where detail match
+    // get user from db where details match
+$checkuser = "SELECT * FROM tbl_customer WHERE CustomerName ='$username' AND password ='$password' "; 
  
 $run = mysqli_query($connect, $checkuser);
 
@@ -72,7 +72,7 @@ if(isset($username)) {
           header('Location:'.$url); 
           
         } else {
-            header('Location: http://lindacom.infinityfreeapp.com/books/myaccount.php?username=' .$_SESSION['customer']);
+            header('Location: http://example.com/books/myaccount.php?username=' .$_SESSION['customer']);
  
       }
 
