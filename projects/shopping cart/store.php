@@ -73,8 +73,8 @@
         <title>Shopping cart</title>
       <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="http://lindacom.infinityfreeapp.com/css/app.scss">
-   <link rel="stylesheet" type="text/css" href="http://lindacom.infinityfreeapp.com/css/modules.scss">
+   <link rel="stylesheet" href="/css/app.scss">
+   <link rel="stylesheet" type="text/css" href="/css/modules.scss">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/css/foundation.min.css">
 <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -137,8 +137,8 @@
 
 <nav aria-label="You are here:" role="navigation">
   <ul class="breadcrumbs">
-    <li><a href="http://lindacom.infinityfreeapp.com/books/library.php">Home</a></li>
-    <li><a href="http://lindacom.infinityfreeapp.com/books/librarysearch.php">Library search</a></li>
+    <li><a href="/books/library.php">Home</a></li>
+    <li><a href="/books/librarysearch.php">Library search</a></li>
    
     <li>
       <span class="show-for-sr">Current: </span> Shopping cart
@@ -148,7 +148,7 @@
             
                           <p>TO DO: hide payment button and table when cart empty. Tidy up right hand column large images push this off page. Format the footers</p>
                           <div class="callout clearfix">
-  <div class="float-left"><a href="http://lindacom.infinityfreeapp.com/books/librarysearch.php"<button class="primary button" type="button">Continue shopping</button></a></div>
+  <div class="float-left"><a href="/books/librarysearch.php"<button class="primary button" type="button">Continue shopping</button></a></div>
   <div class="float-right"> <span class="price" style="color:black"><i class="fa fa-shopping-cart fa-5x"></i> <b><?php 
 echo sizeof($_SESSION['cart']);?></b></span></div>
 </div>
@@ -226,7 +226,7 @@ echo sizeof($_SESSION['cart']);?></b></span></div>
 
 
            <?php  if(isset($_SESSION["cart"])) {
-                    echo '<a href="http://lindacom.infinityfreeapp.com/books/checkout.php"><button class="success button large" type="button">PAYMENT</button></a>';
+                    echo '<a href="/books/checkout.php"><button class="success button large" type="button">PAYMENT</button></a>';
 
                     echo '<div id="order_buttons">';
                     echo '<form method="post">';
