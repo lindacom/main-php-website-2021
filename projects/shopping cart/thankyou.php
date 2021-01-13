@@ -47,10 +47,10 @@ $email =  $_SESSION['email'];
   
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="http://lindacom.infinityfreeapp.com/css/app.scss">
-   <link rel="stylesheet" href="http://lindacom.infinityfreeapp.com/css/modules.scss">
-    <link rel="stylesheet" type="text/css" href="http://lindacom.infinityfreeapp.com/css/productcard.scss">
-     <link rel="stylesheet" type="text/css" href="http://lindacom.infinityfreeapp.com/css/footer.scss">
+ <link rel="stylesheet" href="/css/app.scss">
+   <link rel="stylesheet" href="/css/modules.scss">
+    <link rel="stylesheet" type="text/css" href="/css/productcard.scss">
+     <link rel="stylesheet" type="text/css" href="/css/footer.scss">
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
      <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
