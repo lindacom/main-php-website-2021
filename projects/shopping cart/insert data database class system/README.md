@@ -11,7 +11,8 @@ If the order is placed insert details into the database using the query and the 
          
          if (($_GET['ordered']) == 'yes') {     
        $db = new Database();
-       $db->insertRow("INSERT INTO orders(CustomerName, email, orderdetails, total, orderDate) VALUES('$customer', '$email', '$myitems', '$mysum', '$date' )");
+       $db->insertRow("INSERT INTO orders(CustomerName, email, orderdetails, total, orderDate) 
+           VALUES('$customer', '$email', '$myitems', '$mysum', '$date' )");
        echo 'You have successfully created an order';
               }
 	
