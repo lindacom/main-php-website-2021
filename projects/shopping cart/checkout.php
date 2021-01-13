@@ -2,17 +2,8 @@
 session_start();
 ?>
 
-<?php 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-?> 
-
-
 <?php include 'testinput.php';?>
 <?php include 'dbConnect.php';?> 
-
-
 
 <!-- CHECK IF USER IS LOGGED IN -->
 <?php
@@ -60,10 +51,10 @@ $connect->close();
   
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="http://lindacom.infinityfreeapp.com/css/app.scss">
-   <link rel="stylesheet" href="http://lindacom.infinityfreeapp.com/css/modules.scss">
-    <link rel="stylesheet" type="text/css" href="http://lindacom.infinityfreeapp.com/css/productcard.scss">
-     <link rel="stylesheet" type="text/css" href="http://lindacom.infinityfreeapp.com/css/footer.scss">
+ <link rel="stylesheet" href="/css/app.scss">
+   <link rel="stylesheet" href="/css/modules.scss">
+    <link rel="stylesheet" type="text/css" href="/css/productcard.scss">
+     <link rel="stylesheet" type="text/css" href="/css/footer.scss">
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
      <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -71,7 +62,7 @@ $connect->close();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/plugins/foundation.orbit.min.js"></script> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
 
-  <script src="http://lindacom.infinityfreeapp.com/js/store.js" async></script> <!-- provides the code for the shopping cart -->
+  <script src="/js/store.js" async></script> <!-- provides the code for the shopping cart -->
  
 <style>
 .cbox {    // grey background for search box
