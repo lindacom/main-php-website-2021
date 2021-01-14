@@ -80,6 +80,14 @@ loginuser.php
 
 checkout.php 
 --------------
+ count number of items in the cart
+ ==================================
+ 
+ ```
+  <div class="float-right"> <span class="price" style="color:black"><i class="fa fa-shopping-cart fa-5x"></i> <b><?php 
+echo sizeof($_SESSION['cart']);?></b></span></div>
+</div>
+```
 
 Add shipping cost to total
 -----------------------------
