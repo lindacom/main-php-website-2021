@@ -67,8 +67,19 @@ if (mysqli_num_rows($run)>0) {
 ```
 
 shoppinglogin.php
+=================
+
+Testing
+---------
+To test user sign up test:
+1. submit blank form - required fields
+2. enter name and non matching password - password does not match
+
 loginuser.php
+--------------
+
 checkout.php 
+--------------
 
 Add shipping cost to total
 -----------------------------
