@@ -96,6 +96,16 @@ loginuser.php
 
 checkout.php 
 --------------
+
+database class
+----------------
+Use database class (for insert, select, update and delete queries)
+```
+$db = new Database();
+       $db->insertRow("INSERT INTO orders(CustomerName, email, orderdetails) VALUES('$customer', '$email', '$myitems' )");
+```
+
+
  count number of items in the cart
  ==================================
  
