@@ -1,3 +1,9 @@
+<?php 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+?> 
+
 <?php
     session_start();
 
@@ -64,9 +70,6 @@
 
 <?php include 'dbConnect.php'; ?> 
 
-
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -120,7 +123,7 @@
 
 <!--TWO COLUMN LAYOUT -->
 
-
+<div class="cell small-2"></div>
 
 <!-- left -->
 
@@ -134,7 +137,7 @@
            
           
                           <h2>Shopping cart</h2>
-
+<!-- breadcrumb -->
 <nav aria-label="You are here:" role="navigation">
   <ul class="breadcrumbs">
     <li><a href="/books/library.php">Home</a></li>
@@ -144,23 +147,35 @@
       <span class="show-for-sr">Current: </span> Shopping cart
     </li>
   </ul>
+
+  
+
 </nav>
+
+<div class="clearfix">
+<div class="float-right"><a href="/books/librarysearch.php"> << Continue shopping</a></div></div>
             
-                          <p>TO DO: hide payment button and table when cart empty. Tidy up right hand column large images push this off page. Format the footers</p>
-                          <div class="callout clearfix">
-  <div class="float-left"><a href="/books/librarysearch.php"<button class="primary button" type="button">Continue shopping</button></a></div>
+                                                   <div class="callout clearfix">
+                                                   <div class="float-left"><span style="color:blue"><i class="fa fa-truck fa-5x"></i><p>For delivery</p></div>
+  
+  <!-- count number of items in the cart -->
   <div class="float-right"> <span class="price" style="color:black"><i class="fa fa-shopping-cart fa-5x"></i> <b><?php 
 echo sizeof($_SESSION['cart']);?></b></span></div>
 </div>
 
          
-<p style="color:red;">Free shipping on orders over £30!!</p>
+<p style="color:red;text-align:center;" >Free shipping on orders over £30!!</p>
 
-<h3>Your order</h3>
+<div class="clearfix">
+<div class="float-left"><h3>Your order</h3></div>
+<div class="float-right"><a href="/books/checkout.php"><button class="success button" type="button">Continue to payment > </button></a></div>
+<hr />
+</div>
+
    
- <p>Please check the details of your order</p>                
+ <p>Please check the details of your order</p>             
 
-                         
+                         <!-- display the contents of the cart -->
                           <?php   
                           if(!empty($_SESSION["cart"]))  
                           {  
@@ -178,6 +193,7 @@ echo sizeof($_SESSION['cart']);?></b></span></div>
                                <th width="5%">Action</th>  
                           </tr> 
   <?php
+  // loop through cart and display key and value
                                foreach($_SESSION["cart"] as $keys => $values)  
                                {  
                           ?>  
@@ -191,12 +207,13 @@ echo sizeof($_SESSION['cart']);?></b></span></div>
                          <!-- QUANTITY (test) -->
                               <td> 
                               <div class="input-group input-number-group"> 
-                              <input class="input-number" type="number" value="<?php echo $values["item_quantity"]; ?>"  style="width:70px"> 
+                           <input class="input-number" type="number" value="<?php echo $values["item_quantity"]; ?>"  style="width:70px" > 
                               </div>
                             </td> 
  <!-- PRICE -->
 
                              <td>$ <?php echo $values["item_price"]; ?></td> 
+
                            
  <!-- TOTAL -->
                             
@@ -208,7 +225,7 @@ echo sizeof($_SESSION['cart']);?></b></span></div>
                                $tax = round( ($total / 100) * 20, 2);?>
                               <td>$ <?php echo $tax; ?> </td>
 
-                               <!-- remove action -->
+                               <!-- remove action link -->
                                 <td><a href="store.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>   
                          
 
@@ -224,26 +241,16 @@ echo sizeof($_SESSION['cart']);?></b></span></div>
                      </table> 
                      </div>
 
-
+<!-- if there are items in the cart display the action buttons -->
            <?php  if(isset($_SESSION["cart"])) {
-                    echo '<a href="/books/checkout.php"><button class="success button large" type="button">PAYMENT</button></a>';
-
-                    echo '<div id="order_buttons">';
-                    echo '<form method="post">';
-
-                    echo '<span>';
-                    echo '<input class="btn checkout" value="confirm order" type="submit">';
-                    echo '</span>';
                    
-                    echo '<span>';
-                    echo '<input class="btn cancel" value="cancel order" name="cancel" id="cancel" type="submit">';
-                    echo '</span>';
-
                    
-                    
-                    echo '</form>';
-                    echo '</div>';
-          
+                   echo ' <div class="btn-group align-center">';
+                     echo   '<div> <a href="/books/checkout.php"><button class="success button large" type="button">PAYMENT</button></a></div>';
+                                      echo '<div><a href="/books/logout.php"><button class="danger button small" type="button">Cancel order</button></a></div>';
+                                        echo '</div>';
+                 
+        
            ?>
 
            
@@ -259,7 +266,7 @@ echo sizeof($_SESSION['cart']);?></b></span></div>
      
 
      
-
+<div class="cell small-2"></div>
 </div>
 </div> 
 
@@ -278,14 +285,22 @@ echo sizeof($_SESSION['cart']);?></b></span></div>
 </div> 
 
 <!-- SCRIPTS -->
+
+<!-- set value of input box quantity attribute
+ set url to equal quantity attribute -->
+
     <script>
-                     // quantity input box
+                     // quantity input box - when increase/decrease clicked the value attribute is set to this umber
                      $('.input-number').click(function() {
  var set = $(this).val();
 $(this).attr("value", set);
 
-// var set = $('.input-number').val();
-// $('.input-number').attr("value", set);
+
+ var _href = $(this).attr("value"); //get the value 
+ var _url = location.href; // get current url
+var urlParams = _href;
+ window.location.search = 'quantity=' + urlParams;
+               // $(this).attr("href", _href + set); //add user inputted quantity to the button href as a parameter 
 });
 </script>
 
