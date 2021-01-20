@@ -1,3 +1,10 @@
+Database tables
+=============
+books - id, firstname, lastname, title, price, featured, category, categoryId, image, imagePath, precis, description, summary, product, likes, dislikes, totallikes
+tbl_customer - CustomerID, CustomerName, fullname, email, user_key, password, dateOfBirth, registered, address, city, town, postcode, expiry
+orders - id, customerId, customerName, email, cart, orderdetails, quantity, price, total, totalCalculated, user_id, name, productId, address,
+shippingaddress, orderDate, created_at, updated_at
+
 Functionality
 -------------
 Search for a book:
@@ -11,7 +18,7 @@ Order a book:
 
 Shopping cart
 -------------
-
+if there is a book title in the url, IF THERE IS ALREADY A SESSION
 ```
 if(isset($_GET['title']) && $_GET['title'] !== ""){ //if there is a book title in the url
    
@@ -41,6 +48,7 @@ if(isset($_GET['title']) && $_GET['title'] !== ""){ //if there is a book title i
            }  
       }  
 ```
+IF A SESSION DOES NOT ALREADY EXIST
 ```
 // IF A SESSION DOES NOT ALREADY EXIST
       // add url details to an array, add the array to a new cart session
@@ -57,7 +65,7 @@ if(isset($_GET['title']) && $_GET['title'] !== ""){ //if there is a book title i
      
  }
 ```
-
+unset session when url action is delete
 ```
 <!-- unset session when url action is delete -->
 <?php   
@@ -79,7 +87,7 @@ if(isset($_GET['title']) && $_GET['title'] !== ""){ //if there is a book title i
  }
  ?>
 ```
-
+display number of items in the cart
 ```
 
 //display number of items in the cart
@@ -88,7 +96,7 @@ if(isset($_GET['title']) && $_GET['title'] !== ""){ //if there is a book title i
 echo sizeof($_SESSION['cart']);
   }?>
 ```
-
+if there are items in the cart, display the contents of the cart
 ```
 
                          <!-- if there are items in the cart, display the contents of the cart -->
@@ -196,7 +204,7 @@ echo '</div>';
    
    Checkout
    --------
-   
+   add the digit 3 to the input box when the visa icon is selected
    ```
     <!-- card icons-->
           
@@ -264,4 +272,37 @@ function toggleAddress() {
   }
 }
 </script>
+```
+Checkout
+--------
+
+add whole cart to one table field using serialize
+
+```
+ $serialized_array = serialize($_SESSION['cart']); 
+
+    $sql = "
+    INSERT INTO orders (CustomerName, email, address, orderdetails)
+    VALUES (' ".$_SESSION['firstname']."','".$_POST["email"]."', '".$_SESSION['address']."', '".$serialized_array."' )
+    ";
+
+    $result = mysqli_query($connect,$sql); 
+```
+add key values of cart to various database table fields
+
+```
+foreach($_SESSION['cart'] as $keys => $values) {
+$item_name = mysqli_real_escape_string($connect, $values["item_name"]);
+$qty = mysqli_real_escape_string($connect, $values["item_quantity"]);
+$price = mysqli_real_escape_string($connect, $values["item_price"]);
+
+$total = $values["item_quantity"] * $values["item_price"];
+
+     $sql = "
+    INSERT INTO orders (customerId, CustomerName, email, cart, quantity, price, total, orderdate)
+    VALUES (' ".$_SESSION['id']."' , ' ".$_SESSION['firstname']."','".$_SESSION["email"]."', '".$item_name."', '".$qty."', '".$price."', '".$total."' now() )
+    ";
+
+    $result = mysqli_query($connect,$sql);
+}
 ```
