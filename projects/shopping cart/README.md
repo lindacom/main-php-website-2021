@@ -1,8 +1,8 @@
 Database tables
 =============
-books - id, firstname, lastname, title, price, featured, category, categoryId, image, imagePath, precis, description, summary, product, likes, dislikes, totallikes
-tbl_customer - CustomerID, CustomerName, fullname, email, user_key, password, dateOfBirth, registered, address, city, town, postcode, expiry
-orders - id, customerId, customerName, email, cart, orderdetails, quantity, price, total, totalCalculated, user_id, name, productId, address,
+1. books - id, firstname, lastname, title, price, featured, category, categoryId, image, imagePath, precis, description, summary, product, likes, dislikes, totallikes
+2. tbl_customer - CustomerID, CustomerName, fullname, email, user_key, password, dateOfBirth, registered, address, city, town, postcode, expiry
+3. orders - id, customerId, customerName, email, cart, orderdetails, quantity, price, total, totalCalculated, user_id, name, productId, address,
 shippingaddress, orderDate, created_at, updated_at
 
 Functionality
@@ -108,7 +108,8 @@ if there are items in the cart, display the contents of the cart
 
 echo '<div class="clearfix">';
 echo '<div class="float-left"><h3>Your order</h3></div>';
-echo '<div class="float-right"><a href="http://lindacom.infinityfreeapp.com/books/checkout.php"><button class="success button" type="button">Continue to payment > 
+echo '<div class="float-right"><a href="http://lindacom.infinityfreeapp.com/books/checkout.php">
+<button class="success button" type="button">Continue to payment > 
 </button></a></div>';
 echo '<hr />';
 echo '</div>';
@@ -163,7 +164,8 @@ echo '</div>';
                               <td>$ <?php echo $tax; ?> </td>
 
                                <!-- remove action link -->
-                                <td><a href="store.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>   
+                                <td><a href="store.php?action=delete&id=<?php echo $values["item_id"]; ?>">
+                                <span class="text-danger">Remove</span></a></td>   
                          
 
                             </tr>
@@ -184,7 +186,8 @@ echo '</div>';
                    
                    echo ' <div class="btn-group align-center">';
                      echo   '<div> <a href="/books/checkout.php"><button class="success button large" type="button">PAYMENT</button></a></div>';
-                                      echo '<div><a href="/books/logout.php"><button class="danger button small" type="button">Cancel order</button></a></div>';
+                                      echo '<div><a href="/books/logout.php">
+                                      <button class="danger button small" type="button">Cancel order</button></a></div>';
                                         echo '</div>';
                  
         
@@ -300,7 +303,8 @@ $total = $values["item_quantity"] * $values["item_price"];
 
      $sql = "
     INSERT INTO orders (customerId, CustomerName, email, cart, quantity, price, total, orderdate)
-    VALUES (' ".$_SESSION['id']."' , ' ".$_SESSION['firstname']."','".$_SESSION["email"]."', '".$item_name."', '".$qty."', '".$price."', '".$total."' now() )
+    VALUES (' ".$_SESSION['id']."' , ' ".$_SESSION['firstname']."','".$_SESSION["email"]."', 
+    '".$item_name."', '".$qty."', '".$price."', '".$total."' now() )
     ";
 
     $result = mysqli_query($connect,$sql);
