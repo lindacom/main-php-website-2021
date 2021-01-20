@@ -4,6 +4,7 @@ Search for a book:
 
 1. librarysearch.php
 2. store.php - shopping cart
+3. checkout.php - validats input using testinput.php file
 
 Shopping cart
 -------------
