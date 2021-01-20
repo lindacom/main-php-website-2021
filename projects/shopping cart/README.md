@@ -3,8 +3,11 @@ Functionality
 Search for a book:
 
 1. librarysearch.php
-2. store.php - shopping cart
-3. checkout.php - validats input using testinput.php file
+
+Order a book:
+1. store.php - shopping cart
+2. checkout.php - validates input using testinput.php file
+3. thankyou.php
 
 Shopping cart
 -------------
