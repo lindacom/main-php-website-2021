@@ -1,15 +1,13 @@
-<?php 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-?> 
-
 <?php
     session_start();
 
  if(isset($_GET['title']) && $_GET['title'] !== ""){ //if there is a book title in the url
    
-    // IF THERE IS ALREADY A SESSION  
+    // IF THERE IS ALREADY A SESSION
+    //check if id in the url is already in the cart
+    //if not, count items in cart, add url details to array and add array to cart  
+    //if so, send an alert message and redirect to search page
+
       if(isset($_SESSION["cart"]))  // if there is a cart session
       {  
            $item_array_id = array_column($_SESSION["cart"], "item_id");  
@@ -32,6 +30,7 @@ error_reporting(E_ALL);
       }  
 
       // IF A SESSION DOES NOT ALREADY EXIST
+      // add url details to an array, add the array to a new cart session
       else  
       {  
            $item_array = array(  // create an array using id, title, price and quantity from url
@@ -53,11 +52,11 @@ error_reporting(E_ALL);
 
    if(isset($_GET["action"]))  
  {  
-     if($_GET["action"] == "delete")  // if the selectd action is delete
+     if($_GET["action"] == "delete")  // if the selected action is delete
       {  
-           foreach($_SESSION["cart"] as $keys => $values)  // look through the cart
+           foreach($_SESSION["cart"] as $keys => $values)  // loop through the cart
            {  
-                if($values["item_id"] == $_GET["id"])  // if an id in the cart equals the id in the rul
+                if($values["item_id"] == $_GET["id"])  // if an id value in the cart equals the id in the url
                 {                     
                   unset($_SESSION["cart"][$keys]);  // remove the key from the cart session
                      echo '<script>alert("Item Removed")</script>';  
@@ -84,28 +83,7 @@ error_reporting(E_ALL);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/js/foundation.min.js"></script> 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/js/plugins/foundation.orbit.min.js"></script> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
-
-<style>
-.btn.checkout {
-    background: #ffbf00;
-    border-radius: 11px;
-    color: #312e1d;
-    padding-left: 22px;
-    padding-right: 22px;
-    text-shadow: 0 1px 2px #fff;
-}
-
-.btn.cancel {
-    background: #3f90af;
-    border-radius: 11px;
-    color: #fff;
-    padding-left: 22px;
-    padding-right: 22px;
-    text-shadow: 0 1px 2px #fff;
-}
-</style>
-       
-        
+   
     </head>
     <body>
   
@@ -121,21 +99,15 @@ error_reporting(E_ALL);
 <div class="grid-container">
  <div class="grid-x grid-margin-x"> 
 
-<!--TWO COLUMN LAYOUT -->
+<!--LAYOUT -->
 
+<!-- left empty -->
 <div class="cell small-2"></div>
 
-<!-- left -->
+<!-- middle -->
 
- <div class="cell small-8">
-
- 
-
-<!--shopping cart -->     
-        
+ <div class="cell small-8">     
                  
-           
-          
                           <h2>Shopping cart</h2>
 <!-- breadcrumb -->
 <nav aria-label="You are here:" role="navigation">
@@ -146,39 +118,48 @@ error_reporting(E_ALL);
     <li>
       <span class="show-for-sr">Current: </span> Shopping cart
     </li>
-  </ul>
-
-  
+  </ul> 
 
 </nav>
 
 <div class="clearfix">
-<div class="float-right"><a href="/books/librarysearch.php"> << Continue shopping</a></div></div>
+<div class="float-right"><a href="/books/librarysearch.php"> << Continue shopping</a>
+</div>
+</div>
             
                                                    <div class="callout clearfix">
-                                                   <div class="float-left"><span style="color:blue"><i class="fa fa-truck fa-5x"></i><p>For delivery</p></div>
+
+                                                   <div class="float-left"><span style="color:blue"><i class="fa fa-truck fa-5x"></i><p>For delivery</p>
+                                                   </div>
   
-  <!-- count number of items in the cart -->
-  <div class="float-right"> <span class="price" style="color:black"><i class="fa fa-shopping-cart fa-5x"></i> <b><?php 
-echo sizeof($_SESSION['cart']);?></b></span></div>
-</div>
+  <!-- display number of items in the cart -->
+  <div class="float-right"> <span class="price" style="color:black"><i class="fa fa-shopping-cart fa-5x"></i> <b>
+  <?php 
+  if(isset($_SESSION['cart'])) {
+echo sizeof($_SESSION['cart']);
+  }?>
+  </b></span>
+  </div>
 
-         
-<p style="color:red;text-align:center;" >Free shipping on orders over £30!!</p>
+</div>       
+            
 
-<div class="clearfix">
-<div class="float-left"><h3>Your order</h3></div>
-<div class="float-right"><a href="/books/checkout.php"><button class="success button" type="button">Continue to payment > </button></a></div>
-<hr />
-</div>
-
-   
- <p>Please check the details of your order</p>             
-
-                         <!-- display the contents of the cart -->
+                         <!-- if there are items in the cart, display the contents of the cart -->
                           <?php   
+
                           if(!empty($_SESSION["cart"]))  
                           {  
+                           echo '<p style="color:red;text-align:center;" >Free shipping on orders over £30!!</p>';
+
+echo '<div class="clearfix">';
+echo '<div class="float-left"><h3>Your order</h3></div>';
+echo '<div class="float-right"><a href="/books/checkout.php"><button class="success button" type="button">Continue to payment > </button></a></div>';
+echo '<hr />';
+echo '</div>';
+
+   
+ echo '<p>Please check the details of your order</p>'; 
+
                                $total = 0;  
    ?> 
                                   <div class="table-responsive">  
@@ -265,8 +246,9 @@ echo sizeof($_SESSION['cart']);?></b></span></div>
       </div> 
      
 
-     
+     <!--right empty -->
 <div class="cell small-2"></div>
+
 </div>
 </div> 
 
@@ -286,7 +268,7 @@ echo sizeof($_SESSION['cart']);?></b></span></div>
 
 <!-- SCRIPTS -->
 
-<!-- set value of input box quantity attribute
+<!-- IN DEVELOPMENT - set value of input box quantity attribute
  set url to equal quantity attribute -->
 
     <script>
