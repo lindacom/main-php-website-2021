@@ -190,3 +190,75 @@ echo '</div>';
       
       </div> 
    ```
+   
+   Checkout
+   --------
+   
+   ```
+    <!-- card icons-->
+          
+          <a href="#" id="visa">   <i class="fab fa-cc-visa fa-w-18 fa-3x" style="size:50px"; "color:navy;" ></i></a>
+            <a href="#" id="amex">    <i class="fab fa-cc-amex fa-w-18 fa-3x" style="color:blue;"></i></a>
+            <a href="#" id="mastercard">   <i class="fab fa-cc-mastercard fa-w-18 fa-3x" style="color:red;"></i></a>
+            <a href="#" id="discover">   <i class="fab fa-cc-discover fa-w-18 fa-3x" style="color:orange;"></i></a>
+            
+           
+<script>
+// add the digit 3 to the input box when the visa icon is selected
+ $('#amex').click(function(event){
+        
+        event.preventDefault();
+        var like = 3;
+   // alert(like);
+     $('#ccnum').attr("value", like);
+   
+});
+</script>
+ ```
+ 
+ <!--reset billingform -->
+ ```
+<script>
+function clearformFunction() {
+  document.getElementById("billing").reset();
+}
+</script>
+```
+Toggle:
+
+```
+<!--toggle cart -->
+
+<button type="button" id="toggle-cart" class="success button" onclick="toggleFunction()">Show/hide cart</button> 
+
+<script>
+function toggleFunction() {
+  var x = document.getElementById("cartsummary");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+```
+```
+<!--toggle shipping address -->
+
+<label>
+          <input type="checkbox" checked="checked" name="sameadr" onclick="toggleAddress()"> Shipping address is the same as billing address
+        </label>
+
+        <div style="display:none" id="shipadd">
+
+<script>
+function toggleAddress() {
+  var x = document.getElementById("shipadd");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+```
