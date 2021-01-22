@@ -46,6 +46,11 @@ if (isset($_POST['title'])) {
 }
 ```
 
+```
+//display uploaded image on page
+<img src="../books/uploaded/<?php echo $title;?>.jpg">
+```
+
 database class insert function:
 
 ```
