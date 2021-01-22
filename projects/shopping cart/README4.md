@@ -18,3 +18,8 @@ $myArray = array(
 "quantity" -> 4
 ),
 )
+
+N.b. multidimensional array can have as many basic or associative arrays as you want.  They can also be mixed arrays.  
+
+add item to multidimensional array:
+array_push($_SESSION["cart"], array("itm_id" => $pid, "quantity" => 1));
