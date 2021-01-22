@@ -18,6 +18,11 @@ Order a book:
 
 Shopping cart
 -------------
+```
+// sanitise url id to include only numbers
+$id = preg_replace('#[^0-9]#i', ",$_GET['id']);
+```
+
 if there is a book title in the url, IF THERE IS ALREADY A SESSION
 ```
 if(isset($_GET['title']) && $_GET['title'] !== ""){ //if there is a book title in the url
