@@ -1,3 +1,10 @@
+Book balance and items in stock
+
+inventory.php - view, add and delete books
+inventory_edit.php - edit books
+
+Uses database class to insert books using PDO
+
 Create books
 --------------
 Read books
