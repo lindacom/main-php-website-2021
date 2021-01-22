@@ -6,7 +6,45 @@ inventory_edit.php - edit books
 Uses database class to insert books using PDO
 
 Create books
---------------
+============
+
+file upload
+-----------
+File upload button:
+```
+ <tr>
+        <td width="20%" align="right">Book title</td>
+        <td width="80%"><label>
+          <input name="title" type="text" id="title" size="64" />
+        </label></td>
+      </tr>
+ <tr>
+        <td align="right">Product Image</td>
+        <td><label>
+          <input type="file" name="fileField" id="fileField" />
+        </label></td>
+      </tr> 
+```
+
+File upload:
+
+```
+if (isset($_POST['title'])) {
+       $title = mysqli_real_escape_string($connect, $_POST['title']);
+       
+            // if a file is uploaded
+                  	if ($_FILES['fileField']['tmp_name'] != "") {
+	    // use title as image name	   
+        $newname = "$title.jpg";
+
+        // replace whitespaces in filename with underscore
+        $newname = str_replace(' ', '_', $newname);
+
+        // Place image in the folder
+       	    move_uploaded_file($_FILES['fileField']['tmp_name'], "../books/uploads/$newname");
+	} 
+}
+```
 Read books
 -----------
 
