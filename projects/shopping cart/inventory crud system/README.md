@@ -45,6 +45,23 @@ if (isset($_POST['title'])) {
 	} 
 }
 ```
+
+database class insert function:
+
+```
+//insert row
+    public function insertRow($query) {
+    try {
+        $stmt = $this->datab->prepare($query);
+      //  $stmt->execute($params);
+      $stmt->execute();
+        return TRUE;
+        echo 'record inserted';
+            } catch (PDOException $e) {
+                throw new Exception($e->getMessage());
+            }
+}
+```
 Read books
 -----------
 
