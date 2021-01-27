@@ -134,6 +134,31 @@ echo 'free';
 </tr>
 ```
 
+Switch statement:
+
+```
+$total = $total;
+$deliery = '';
+
+switch ($total) {
+
+case $total < 10:
+$delivery = 10;
+break;
+
+case $ total > 10 && $total < 30:
+$delivery = 5;
+break;
+
+case $total > 30:
+$delivery = 'FREE';
+break;
+
+}
+
+echo $delivery;
+```
+
 
 Cancel order
 --------------
