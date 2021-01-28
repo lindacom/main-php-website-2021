@@ -5,7 +5,24 @@ Database tables
 3. orders - id, customerId, customerName, email, cart, orderdetails, quantity, price, total, totalCalculated, user_id, name, productId, address,
 shippingaddress, orderDate, created_at, updated_at
 
-Functionality
+Using database class
+------------------------
+
+Include class file:
+```
+<?php 
+include '../books/includes/Database.php';
+?> 
+```
+Create a new instance of the class:
+```
+$db = new Database();
+```
+Use a method from the class: eg.
+```
+$db->insertRow("query here");
+```
+Shopping cart functionality
 -------------
 Search for a book:
 
