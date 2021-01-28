@@ -20,7 +20,18 @@ $db = new Database();
 ```
 Use a method from the class: eg.
 ```
-$db->insertRow("query here");
+$ResultSet = $db->insertRow("query here");
+```
+
+The query will return an array of results.  To loop through the array on an html page:
+
+```
+foreach ($ResultSet as $link) {
+  echo $link['CustomerName'];
+  
+  echo $link['cart'];
+  echo '<br />';
+  }
 ```
 Shopping cart functionality
 -------------
