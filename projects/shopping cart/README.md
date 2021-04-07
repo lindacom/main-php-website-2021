@@ -37,12 +37,22 @@ Shopping cart functionality
 -------------
 Search for a book:
 
-1. librarysearch.php
+1. library.php
+2. librarysearch.php
+3. bookdetails.php
+
+Access my account:
+
+1. shoppinglogin.php
+2. reviews.php
+3. ratings.php
 
 Order a book:
 1. store.php - shopping cart - add and remove items from the cart and store in a session
 2. checkout.php - validates input using testinput.php file, inserts order details into the database
 3. thankyou.php - order confirmation - book delivery, confirm order
+4. shoppingnav.php
+5. delivery.php
 
 Shopping cart
 -------------
