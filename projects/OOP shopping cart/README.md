@@ -9,6 +9,23 @@ error_reporting(E_ALL);
 ?> 
 ```
 
+include a file
+==============
+```
+<?php require 'cart.php'; 
+?>
+```
+
+get url data
+=============
+
+```
+<?php 
+$name = $_GET['name'];
+echo $name;
+?>
+```
+
 Sessions
 =========
 
@@ -36,6 +53,15 @@ store array in session
               
 $_SESSION["cart"] = $item_array;
 ```
+
+loop through session
+------------------------
+```
+ foreach ($_SESSION["cart"] as $key=>$item){
+  
+    echo $item; 
+         }
+         ```
 
 Database queries
 ================
@@ -66,3 +92,42 @@ Sub strings
  if (substr($name, 0, 5) == 'cart_') { // if the format of the first five characters of the session is 'cart_' 
 
           $id = substr($name, 5, (strlen($name)-5)); //id is everything after 'cart_'  
+          
+ Objects and classes
+ ===================
+ 
+ <?php
+// creates new customer object and gets results of query from the method in customer class
+$newcustomer = new Customer ($database, $name);
+$newcustomer->getCustomerName($database, $name);
+
+echo $newcustomer->getCustomerName($database, $name);
+?>
+          
+ JQuery
+ =======
+ 
+  window redirect
+  ----------------
+ window.location.href = "http://example.com/shopping/shopfront.php?name=" + encodeURIComponent(txt);
+ 
+ click event prompt box
+ ----------------------
+ ```
+ <script>
+$(document).ready(function(){
+  $("#cart").click(function(){
+   // alert("The paragraph was clicked.");
+
+    var txt;
+  var person = prompt("Please enter your name:", "linda");
+  if (person == null || person == "") {
+    txt = "User cancelled the prompt.";
+  } else {
+      txt = person;
+    window.location.href = "http://lindacom.infinityfreeapp.com/shopping/shopfront.php?name=" + encodeURIComponent(txt);
+  }
+  });
+});
+</script>
+```
