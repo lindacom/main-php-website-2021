@@ -54,6 +54,32 @@ store array in session
 $_SESSION["cart"] = $item_array;
 ```
 
+Conditional store array in session
+-----------------------------------
+
+```
+// ARRAY OF BOOK DETAILS
+if(isset($_SESSION["mytitles"])){
+      $count = count($_SESSION["mytitles"]);  // count number of items in the cart
+ $item_array = array(  // create a multidimensional array using id, title, price and quantity from url
+                'item_id'               =>     $_GET["id"],
+                   'item_name' =>     $_GET["title"], 
+                    'item_price'          =>    $_GET["price"], 
+                     'item_quantity'          =>     $_GET["quantity"]
+           );  
+           $_SESSION["mytitles"][$count] = $item_array;  // store item array in cart session
+} else {
+    $item_array = array(  // create a multidimensional array using id, title, price and quantity from url
+                'item_id'               =>     $_GET["id"],
+                   'item_name' =>     $_GET["title"], 
+                    'item_price'          =>    $_GET["price"], 
+                     'item_quantity'          =>     $_GET["quantity"]
+           ); 
+    $_SESSION["mytitles"][0] = $item_array;
+}
+echo '<pre>',print_r( $_SESSION["mytitles"]) ,'</pre>';
+```
+
 loop through session
 ------------------------
 ```
