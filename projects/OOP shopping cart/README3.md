@@ -21,4 +21,8 @@ Bordered table
      <th>Price</th>     
      <th>Purchase</th>
   </tr>
+        
+Button
+=========
+echo '<div class="float-right"><a href="http://lindacom.infinityfreeapp.com/shopping/mycart.php" target="_blank"><button class="success button" type="button" style="background-color:#38803E;font-size:19px;">Continue to Basket > </button></a></div>';
     
