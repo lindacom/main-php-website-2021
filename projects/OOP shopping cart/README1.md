@@ -120,6 +120,16 @@ foreach($allproducts->showAll($database) as $keys => $values) {
   echo '</tr>
   }
   ```
+  
+  Print size of session
+  ----------------------
+  
+  ```
+   <?php 
+  if(isset($_SESSION['mytitles'])) {
+echo sizeof($_SESSION['mytitles']);
+  }?>
+  ```
 
 
 
