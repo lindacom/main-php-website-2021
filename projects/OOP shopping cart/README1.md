@@ -108,6 +108,19 @@ loop through session
          }
 ```
 
+loop through results of class method
+---------------------------------------
+```
+foreach($allproducts->showAll($database) as $keys => $values) {
+  echo '<tr>';
+  
+  echo '<td>' .$values["id"]. '</td>';
+   echo '<td>' .$values["title"]. '</td>';
+  echo '<td></td>';
+  echo '</tr>
+  }
+  ```
+
 
 
 
