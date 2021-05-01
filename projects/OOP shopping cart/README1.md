@@ -26,6 +26,25 @@ echo $name;
 ?>
 ```
 
+Sub strings
+===========
+ if (substr($name, 0, 5) == 'cart_') { // if the format of the first five characters of the session is 'cart_' 
+
+          $id = substr($name, 5, (strlen($name)-5)); //id is everything after 'cart_'  
+          
+ Objects and classes
+ ===================
+ ```
+ <?php
+// creates new customer object and gets results of query from a method in the customer class
+
+$newcustomer = new Customer ($database, $name);
+$newcustomer->getCustomerName($database, $name);
+
+echo $newcustomer->getCustomerName($database, $name);
+?>
+```
+
 Sessions
 =========
 
@@ -92,20 +111,5 @@ loop through session
 
 
 
-Sub strings
-===========
- if (substr($name, 0, 5) == 'cart_') { // if the format of the first five characters of the session is 'cart_' 
 
-          $id = substr($name, 5, (strlen($name)-5)); //id is everything after 'cart_'  
-          
- Objects and classes
- ===================
- 
- <?php
-// creates new customer object and gets results of query from the method in customer class
-$newcustomer = new Customer ($database, $name);
-$newcustomer->getCustomerName($database, $name);
-
-echo $newcustomer->getCustomerName($database, $name);
-?>
  
