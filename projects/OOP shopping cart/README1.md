@@ -16,8 +16,8 @@ include a file
 ?>
 ```
 
-get url data
-=============
+get url data and assign to a variable
+======================================
 
 ```
 <?php 
@@ -43,6 +43,17 @@ $newcustomer->getCustomerName($database, $name);
 
 echo $newcustomer->getCustomerName($database, $name);
 ?>
+```
+
+put objects in array and print the array
+-----------------------------------------
+
+```
+ $keying[] = new Product($id, $title, $price); 
+
+              print "<pre>";
+print_r($keying);
+print "</pre>";
 ```
 
 Sessions
