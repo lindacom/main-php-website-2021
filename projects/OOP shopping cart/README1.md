@@ -54,8 +54,8 @@ store array in session
 $_SESSION["cart"] = $item_array;
 ```
 
-Conditional store array in session
------------------------------------
+Conditional store array in session - check if session array already exists
+--------------------------------------------------------------------------
 
 ```
 // ARRAY OF BOOK DETAILS
