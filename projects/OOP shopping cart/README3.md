@@ -7,3 +7,18 @@ Search box
           </div>
           <p class="text-right"><a href="http://lindacom.infinityfreeapp.com/books/librarysearchfull.php" style="color:white">Full search</a></p>
         </div>
+        
+       
+
+Bordered table
+===============
+    <div class="table-responsive">
+   <table class="table table bordered">
+        <tr>
+    <th>ID</th>
+    <th>Book Title</th>
+    <th>Category</th>
+     <th>Price</th>     
+     <th>Purchase</th>
+  </tr>
+    
