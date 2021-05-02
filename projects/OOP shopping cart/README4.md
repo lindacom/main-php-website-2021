@@ -74,3 +74,17 @@ public function showAll($connect)
   } }
   
 ```
+
+create new object, fetch individual value from array
+--------------------------------------------------------------------------------------
+
+N.b object performs database query and returns array
+
+```
+$newcustomer = new Customer ($database, $name);
+$newuser = $newcustomer->getCustomerName($database, $name);
+
+ print_r($newcustomer->getCustomerName($database, $name)); // associative array
+
+print_r( $newuser["address"]); // access individual value from associative array
+```
