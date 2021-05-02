@@ -26,6 +26,20 @@ echo $name;
 ?>
 ```
 
+Conditional - get url data or redirect page
+-------------------------------------------
+
+```
+if(isset($_GET["title"]))  {
+$id = $_GET["id"];
+$title = $_GET["title"];
+$price = $_GET["price"];
+$quantity = $_GET["quantity"];
+} else {
+    header ('location: products.php');
+}
+```
+
 Sub strings
 ===========
  if (substr($name, 0, 5) == 'cart_') { // if the format of the first five characters of the session is 'cart_' 
