@@ -1,8 +1,8 @@
 Grid container
 ==============
-
+```
 <div class="grid-container"></div>
-
+```
 Search box
 ================
 ```
