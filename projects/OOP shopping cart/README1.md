@@ -70,6 +70,13 @@ print_r($keying);
 print "</pre>";
 ```
 
+Get individual values from an array object
+-----------------------------------------
+
+```
+print_r( $_SESSION["firstcustomer"]["CustomerName"]);
+```
+
 Sessions
 =========
 
@@ -145,6 +152,20 @@ foreach($allproducts->showAll($database) as $keys => $values) {
   echo '</tr>
   }
   ```
+  
+  Loop through multidimensional array
+  -----------------------------------
+  
+  ```
+  foreach($array as $me){
+               foreach($me as $k=>$v){
+            $this->$k = $v; 
+                 
+               }    
+        print  'ITEM NAME: ' .$this->item_name.'PRICE:' .$this->item_price. 'QUANTITY:' .$this->item_quantity.
+                      '<br>';  
+     }
+ ```
   
   Print size of session
   ----------------------
