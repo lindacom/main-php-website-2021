@@ -149,6 +149,30 @@ if(isset($_SESSION["mytitles"])){
 }
 echo '<pre>',print_r( $_SESSION["mytitles"]) ,'</pre>';
 ```
+Loops
+======
+
+for loop - print 0 to five
+--------------------
+
+for($i=0; $i <=5; $i++) {
+echo $i;
+}
+
+While loop
+---------
+N.b. the variable must be set outside
+
+$i=0;
+while($i <=5) {
+echo 'number' .$i. '<br />';
+$i++;
+}
+
+
+
+N.b. foreach loop is used specifically for arrays
+
 
 loop through session
 ------------------------
