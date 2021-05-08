@@ -223,6 +223,16 @@ echo sizeof($_SESSION['mytitles']);
   functions
   ===========
   block of code that can be used repeatedly in a program.
+  
+  function with default parameters
+  ---------------------------------
+  N.b. the value passed as a parameter will override the default parameter.  If no parameter is passed then the default parameter will be used
+  
+  function greet ($greeting, $name = 'John') {
+       echo $greeting. ' ' .$name;
+  }
+  
+  greet('welome');
 
 
 
