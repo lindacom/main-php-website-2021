@@ -219,6 +219,10 @@ foreach($allproducts->showAll($database) as $keys => $values) {
 echo sizeof($_SESSION['mytitles']);
   }?>
   ```
+  
+  functions
+  ===========
+  block of code that can be used repeatedly in a program.
 
 
 
