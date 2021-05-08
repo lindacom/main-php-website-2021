@@ -106,6 +106,25 @@ $post->name = 'testing';
 // print variable
 echo $post->name;
 
+Static properties and methods
+-----------------------------
+Used for variables that do not change.  
+
+class User {
+pubic $username;
+public static $minPassLength = 5;
+
+public static validatePassword($password) {
+if(strlen($password) >= self:minPassLength) {
+return true;
+} else {
+return false;
+}
+}
+}
+
+N.b when referencing a static property use self:: scope resolution operator instead of $this.
+
 Class inheritance
 -----------------
 It is possible to create a class that inherits the properties and methods of another class. enter class name then use the extends keyword followed by the
