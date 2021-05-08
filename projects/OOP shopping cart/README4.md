@@ -2,6 +2,10 @@
 Database connection
 ==================
 
+1. dbConnect.php
+2. classes/Mysql.php
+3. 
+
 in html file:
 
 ```
