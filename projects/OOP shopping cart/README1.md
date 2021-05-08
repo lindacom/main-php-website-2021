@@ -27,6 +27,7 @@ include $class_name . '.php';
 });
 
 $cart = new Cart;
+```
 
 N.b. Adding final keyword to a class or method means that the unction cannot be overridden by child classes.
 
