@@ -105,6 +105,25 @@ store array in session
 $_SESSION["cart"] = $item_array;
 ```
 
+Access array items
+------------------
+
+echo $item_array["item_value"];
+
+remove last item in array
+-------------------------
+array_pop($item_array);
+
+remove first item in array
+--------------------------
+
+array_shift($item_array);
+
+print the array
+---------------
+
+print_r($item_array);
+
 Conditional store array in session - check if session array already exists
 --------------------------------------------------------------------------
 
