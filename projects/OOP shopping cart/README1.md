@@ -80,6 +80,31 @@ N.b. destructor runs at the end of code. can be used for closing database connec
 $User = new User;
 $User->login('brad', '1234');
 
+Methods - GET and SET
+---------------------
+properties can be set to private which means they cannot be accessed outside the class. you can use the set and get (magic) methods to access the properties.
+Othe functions include __isset()
+
+N.b the get and set method names start with a double underscore
+
+class Post {
+private $name;
+
+public function __set($name, $value) {
+echo 'setting' .$name. 'to .$value;
+$this->name = $value;
+}
+
+public function __get($name) {
+echo 'getting' .$name.  $this->name;
+}
+
+//instantiate object
+$post = new Post;
+// set variable 
+$post->name = 'testing';
+// print variable
+echo $post->name;
           
  Objects and classes
  ===================
