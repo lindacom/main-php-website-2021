@@ -105,7 +105,38 @@ $post = new Post;
 $post->name = 'testing';
 // print variable
 echo $post->name;
-          
+
+Class inheritance
+-----------------
+It is possible to create a class that inherits the properties and methods of another class. enter class name then use the extends keyword followed by the
+name of the class it is inheriting from
+
+class First {
+public $id = 23;
+protected $name = 'John Doe';
+
+public function saySomething(){
+    echo 'something...';
+}
+}
+
+clsss Second extends First {
+public function getName() {
+echo $this->name;
+}
+
+}
+
+
+$second = new Second;
+
+// access property from inherited class
+echo $second->id;
+
+echo $second->getName();
+
+N.b. protected properties cannot be accessed outside the class but can be accessed by a method in an inherited class
+N.b. private properties cannot be accessed by inherited class
  Objects and classes
  ===================
  ```
