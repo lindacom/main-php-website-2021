@@ -9,12 +9,26 @@ error_reporting(E_ALL);
 ?> 
 ```
 
-include a file
-==============
+include and autoload class files
+=================================
+Include class files in the html page.
+
 ```
 <?php require 'cart.php'; 
 ?>
 ```
+
+N.b. if you have a folder with many class files that need to be included you can use SPL autoload register to autoload all classes. you can use the class name and concatinate the .php extention
+
+```
+<?php
+spl_autoload_register(function($class_name){
+include $class_name . '.php';
+});
+
+$cart = new Cart;
+
+N.b. Adding final keyword to a class or method means that the unction cannot be overridden by child classes.
 
 get url data and assign to a variable
 ======================================
