@@ -114,8 +114,8 @@ class User {
 pubic $username;
 public static $minPassLength = 5;
 
-public static validatePassword($password) {
-if(strlen($password) >= self:minPassLength) {
+public static function validatePassword($password) {
+if(strlen($password) >= self::$minPassLength) {
 return true;
 } else {
 return false;
@@ -124,6 +124,19 @@ return false;
 }
 
 N.b when referencing a static property use self:: scope resolution operator instead of $this.
+
+N.b when referencing a static method yu do not need to instantiate an object.  Just use the class name, scope resolution operator and method.
+
+$password = 'pass';
+
+if(User::validatePassword($paword)) {
+   echo 'password is valid';
+} else {
+echo 'password is NOT valid';
+}
+
+// access a static property
+echo User::$minPassLength;
 
 Class inheritance
 -----------------
@@ -156,6 +169,45 @@ echo $second->getName();
 
 N.b. protected properties cannot be accessed outside the class but can be accessed by a method in an inherited class
 N.b. private properties cannot be accessed by inherited class
+
+Abstract classes and methods
+----------------------------
+Abstract class is used as a base class that other classes extend from e.g. animal class and dog class. You cant instantiate an abstract class.
+you instantiate the class that extends the base class
+
+Base class
+```
+abstract class Animal {
+public $name;
+public $color;
+
+public function describe() {
+return $this->name. 'is' .$this->color;
+}
+abstract public function makeSound();
+}
+```
+```
+class Dog extends Animal {
+public function describe(){
+return parent::describe();
+}
+public function makeSound(){
+return 'bark';
+}
+
+}
+```
+```
+$animal = new Dog();
+$animal->name = 'Larry';
+$animal->color = 'brown';
+
+echo $animal->describe();
+echo $animal->makeSound();
+
+```
+
  Objects and classes
  ===================
  ```
