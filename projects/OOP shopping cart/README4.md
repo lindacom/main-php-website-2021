@@ -5,7 +5,8 @@ Database connection
 in html file:
 
 ```
-// n.b. required class file should come before dbconnect file in order to use the mysql class (contained in that file) for database connection.
+// n.b. required class file should come before dbconnect file in order to use the mysql class (contained in that file) 
+for database connection.
 
 require 'classes/Customer.php'; 
 require 'dbConnect.php';
@@ -49,7 +50,8 @@ function products() {
       }
         else {
           while ($get_row = mysqli_fetch_assoc($result)) {
-            echo '<p>'.$get_row['title'].'<br />'.$get_row['title'].'<br />'.$get_row['description']. '<br />'.number_format($get_row['price'], 2).' <a href="cart.php?add='.$get_row['id'].'">Add to cart</a></p>';
+            echo '<p>'.$get_row['title'].'<br />'.$get_row['title'].'<br />'.$get_row['description']. '<br />'.
+            number_format($get_row['price'], 2).' <a href="cart.php?add='.$get_row['id'].'">Add to cart</a></p>';
                 }
 }
 ```
@@ -76,7 +78,7 @@ public function showAll($connect)
 ```
 
 create new object, fetch individual value from array
---------------------------------------------------------------------------------------
+-----------------------------------------------------
 
 N.b object performs database query and returns array
 
