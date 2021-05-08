@@ -2,9 +2,83 @@
 Database connection
 ==================
 
-1. dbConnect.php
-2. classes/Mysql.php
-3. 
+1. Create Mysql database and tables.
+2. Create database class - connection, constructor.
+
+PDO - php database object.
+
+```
+class Database {
+private $host = 'localhost';
+private $user = 'root';
+private $pass = '1234';
+privat $dbname = 'mydatabase';
+
+priate $dbh; // database handler
+private $error;
+private $stmt;
+
+// construct function
+pulic function __construct() {
+// set DSN
+$dsn = 'mysql:host='. $this->host. ';dbname='. $this->dbname;
+//set options
+$options = array(
+PDO::ATTR_PERSISTENT => true,
+PDO::ATTR_ERRMODE -> PDO::ERRMODE_EXCEPTION
+);
+//create new PDO
+try {
+$this->dbh = new PDO($dsn, %this->user, $this->pass, $options)
+} catch (POException $e) {
+$this->error = $e->getMessage();
+}
+}
+
+// query function
+
+public function query($query) {
+$this->stmt = $this->dbh->prepare($query);
+}
+
+// bind function (to bind data)
+// checking what data is being passed and bind accordingly
+
+public function bind($param, $value, $type = null){
+if(is_null($type)) {
+switch(true) {
+case is_int($value): $type = PDO::PARAM_INT;
+break;
+case is_bool($value): $type = PDO::PARAM_BOOL;
+break;
+case is_NULL($value): $type = PDO::PARAM_NULL;
+break;
+DEFAULT: $type = PDO::PARAM_STR;
+}
+
+
+}
+$this->stmt->bindValue($param, $value, $type);
+}
+// execute function - executes prepared statement
+public function execute() {
+return $this->stmt->execute();
+}
+
+
+// result set (for the data to be returned to)
+//return associaive array
+public function resultset() {
+$this->execute();
+retur $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+}
+```
+3. include the database file in the index file - create new database object
+
+**dbConnect.php
+**classes/Mysql.php
 
 in html file:
 
