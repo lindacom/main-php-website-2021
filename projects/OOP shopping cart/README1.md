@@ -45,6 +45,41 @@ Sub strings
  if (substr($name, 0, 5) == 'cart_') { // if the format of the first five characters of the session is 'cart_' 
 
           $id = substr($name, 5, (strlen($name)-5)); //id is everything after 'cart_'  
+          }
+          
+Classes
+========
+Classes have properties (attributes) and methods (functions). 
+
+class User {
+
+public $id;
+public $username;
+public $email;
+public $password;
+
+public function login($username, $password) {
+
+// set variables
+$his->username = $username;
+$this->password = $password;
+
+   echo 'username:' . $username . 'is now logged in';
+}
+
+}
+
+N.b you can set default values for properties. eg public $id - 44;
+N.b. to access a public property in a method use $this-> followed by property name. e.g. $this->id;
+N.b constructor runs code when class is instantiated. can be used for setting up default properties. 
+N.b. to call a function within another function within the class use $this-> followed by the function name.
+N.b. destructor runs at the end of code. can be used for closing database connections.
+
+
+// instantiate class
+$User = new User;
+$User->login('brad', '1234');
+
           
  Objects and classes
  ===================
