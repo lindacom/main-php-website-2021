@@ -7,8 +7,8 @@ from database
 
 File structure
 ===============
-Set up NMP for PHP in visual studio code
-In the directory create a folder for the project and add the following files:
+
+In the directory add the following files:
 
 config.php
 index.php
