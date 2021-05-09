@@ -26,6 +26,9 @@ users.php
 Models folder:
 home.php
 
+Views folder:
+main.php
+
 
 Routes
 ========
@@ -55,7 +58,8 @@ The home controller extends the controller class
 
 Model
 =====
-The base Model class is an abstract class that other classes extend from. it contains PDO for database connection, query method and bind function
+The base Model class is an abstract class that other classes extend from. it contains PDO for database connection, query method and bind function, execute
+function and results function
 N.b. constants are conained in the config file - database parameters that don't change.
 
 The home model
@@ -67,4 +71,16 @@ Create database
 Create database and tables 
 users - id, name varchar 255, email, password, registered date date/time current timestamp
 shares - id auto increent, primary, user id int, title, body text, link, create date date time current timestamp
+
+Make a query and get data
+------------------------
+
+The shares controller creates a new Sharemodel object
+the share model extends the base Model class. It contains and index funtion with a query
+
+Views
+=====
+shares model is quryig dataase and displaying array in the viw
+
+main.php
 
