@@ -23,12 +23,20 @@ home.php
 shares.php
 users.php
 
+Models folder:
+home.php
+
 
 Routes
 ========
 
 index file:
-In the index file require the bootstrap class file and the config.php file and controller class file and controllers - home.php, shares.php and users.php
+In the index file require the bootstrap class file, controllers class file and model class file 
+require the config.php file 
+require controller class file 
+require controllers - home.php, shares.php and users.php
+require models - home.php, share.php and user.php
+
 Create a new instance of the bootstrap object and pass in the get parameter as the request
 
 call the create controller method
@@ -47,6 +55,16 @@ The home controller extends the controller class
 
 Model
 =====
-The base Model class is an abstract class that other classes extend from. it contains PDO for database connection
-constants are conained in the config file - database parameters that don't change.
+The base Model class is an abstract class that other classes extend from. it contains PDO for database connection, query method and bind function
+N.b. constants are conained in the config file - database parameters that don't change.
+
+The home model
+
+The user and share models contain queries.
+
+Create database
+---------------
+Create database and tables 
+users - id, name varchar 255, email, password, registered date date/time current timestamp
+shares - id auto increent, primary, user id int, title, body text, link, create date date time current timestamp
 
