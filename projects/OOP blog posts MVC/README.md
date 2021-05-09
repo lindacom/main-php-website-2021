@@ -18,6 +18,7 @@ Classes folder:
 Bootstrap.php
 Controller.php
 Model.php
+Messages.php
 
 controllers folder:
 -----------------------
@@ -91,9 +92,85 @@ main.php
 Login and authentication
 ==========================
 
-users controller has register method which refers to user model and returns view
-user model has register method
-views > users > register.php contains a form to be competed by user, inserts details into database and returns the login view.
+Controller
+-----------
+users controller has register method which refers to user model to create a new model and returns view
+users controller also has a login method
+users controller has a logout method which unsets sessions and destroys the session and redirects to root url
 
+Model
+-----
+user model has register method and a login method
 
+Views
+-------
+Register:
+views > users > register.php contains a form to be competed by user, inserts details into database 
+register view returns the login view after form submission.
+
+Login:
+login view contains a login form which checks user details in the database.  
+
+Sessions:
+In the user model if the login details are correct a logged in session is set to true, 
+a session data session is set to an array containing id and name and email from the database. It then redirects to the shares view.
+
+Access control
+===============
+Restrict access to certain pages
+
+hide button if not logged in:
+
+```
+<?php if(isset($_SESSION)) : ?> 
+    <a class="btn btn-success btn-share" href="<?php echo ROOT_PATH; ?>>shares</a> 
+    <?php endif; ?>
+```
+
+If no logged in then redirect otherwise show the view:
+
+```
+  protected function add() {
+if(!isset($_SESSION['is_logged_in'])) {
+    header('Location: '.ROOT_URL. 'shares');
+}
+                $viewmodel = new ShareModel();
+        $this->ReturnView($viewmodel->add(), true);
+    }
+}
+```
+
+Message class
+============
+Alows you to neatly display messages instead of having to echo them out on the page. Can be used to display error message, success message, validation
+
+1. Create a message class
+sets a session thn if session set display message then unsets the message
+error messages
+success messages
+
+2. include the message class in the index file
+3. set the message class in the model file. N.b the messages class is static so you dont need to instantiate it you can just call set message meethod passing in
+message and type (error or success) as parameters
+
+example one:
+```
+else {
+                  Messages::setMsg('Incorrect Login', 'error');
+              }
+```
+example two:
+```
+// if fields are blank display error message
+        if ($post['name'] == '' || $post['email'] == '' || $post['password'] == '' ) {
+            Messages::setMsg('Please fill in all fields', 'error');
+            return; // stops running
+          }
+```
+
+4. display the message in the main view 
+
+```
+<?php Messages::display(); ?>
+```
 
