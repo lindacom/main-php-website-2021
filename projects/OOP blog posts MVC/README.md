@@ -14,19 +14,23 @@ config.php
 index.php
 
 Classes folder:
+----------------
 Bootstrap.php
 Controller.php
 Model.php
 
 controllers folder:
+-----------------------
 home.php
 shares.php
 users.php
 
 Models folder:
+-------------
 home.php
 
 Views folder:
+----------------
 main.php
 
 
@@ -83,4 +87,13 @@ Views
 shares model is quryig dataase and displaying array in the viw
 
 main.php
+
+Login and authentication
+==========================
+
+users controller has register method which refers to user model and returns view
+user model has register method
+views > users > register.php contains a form to be competed by user, inserts details into database and returns the login view.
+
+
 
