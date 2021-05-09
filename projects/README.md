@@ -1,7 +1,7 @@
 NPM for PHP projects
 =====================
 
-1. Create a node project
+Create a node project
 ===========================
 
 1. Open visual studio code. Open a terminal and navigate to the required directory (e.g desktop)
@@ -27,7 +27,11 @@ In visual studio code open a terminal and install express - enter the command np
 
 Create files
 =============
-webserver.js
+webserver.js - web server. requires “execphp.js” which is where we will do the PHP parsing. 
+defining a route that recieves all *.php requests, and runs them through the execPHP class.
+
+execphp.js - this file contains a class, ExecPHP, with a single method, parseFile. This method basically takes a file, 
+executes the command line PHP and calls the passed callback with the result.
 
 Run the application
 =====================
