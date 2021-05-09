@@ -18,7 +18,7 @@ enter to accept the default.  When prompted is it ok click yes.
 In visual studio code: 
 7. go to file > open folder and open the directory you have created. N.b. you will see a node modules directory has been created and a package.json file has been created
 
-2. Add dependencies
+Add dependencies
 =================
 
 express - a framework for node.js. Express router is used for registering different routes and endpoints.
@@ -27,11 +27,13 @@ In visual studio code open a terminal and install express - enter the command np
 
 Create files
 =============
-webserver.js - web server. requires “execphp.js” which is where we will do the PHP parsing. 
+1. ebserver.js - web server. requires “execphp.js” which is where we will do the PHP parsing. 
 defining a route that recieves all *.php requests, and runs them through the execPHP class.
 
-execphp.js - this file contains a class, ExecPHP, with a single method, parseFile. This method basically takes a file, 
+2. execphp.js - this file contains a class, ExecPHP, with a single method, parseFile. This method basically takes a file, 
 executes the command line PHP and calls the passed callback with the result.
+
+3. php file
 
 Run the application
 =====================
