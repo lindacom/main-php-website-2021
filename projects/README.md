@@ -1,5 +1,5 @@
-NPM for PHP
-===========
+NPM for PHP projects
+=====================
 
 1. Create a node project
 ===========================
