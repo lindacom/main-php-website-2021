@@ -1,5 +1,25 @@
-To start a new project 
+To start a new project using live server
+============================================
+
+Create a folder on the desktop
+In visual studio code go to termina > new terminal
+navigate to the new folder using the cd command
+
+Go to visual studio code extensions
+Search for and install live server. N.b. live server has to be started from the index page. Live server automatically updates the page in the browser.
+search for and install auto close tag
+
+Add files to the project
 ------------------------
+N.b. typing doc and pressing the tab key creates an html document template in viual studio code
+
+Open the project
+-----------------
+Press shift + ctrl + P and type live server: open live server 
+go to the browser to view the file.
+
+To start a new project 
+=========================
 
 Create a folder on the desktop
 In visual studio code go to termina > new terminal
