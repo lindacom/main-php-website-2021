@@ -15,3 +15,20 @@ In visual studio code open the folder (file > open folder)
 2. at the command line enter node server.js to start the server
   
 Open the browser and go to the local host name to view the app on the local server
+  
+To start a project using node-static
+=====================================
+follow the instructions above and install node static - npm install node-static
+  
+write the following code in the server.js file
+  
+```
+  var static = require('node-static');
+var http = require('http');
+
+var file = new(static.Server)(__dirname);
+
+http.createServer(function (req, res) {
+  file.serve(req, res);
+}).listen(3000);
+  ```
